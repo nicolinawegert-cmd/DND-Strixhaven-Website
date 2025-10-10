@@ -62,13 +62,13 @@ main {
 }
 
 .character-roster {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 15px;
-  justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
-.character-roster a{
+.character-roster a {
   text-align: center;
   text-decoration: none;
   color: #f5f5f5;
@@ -89,6 +89,14 @@ main {
   height: 250px;
   object-fit: cover;
   border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  margin-bottom: 8px;
+}
+
+.character-roster p {
+  margin: 0;
+  font-size: 14px;
+  text-align: center;
 }
 
 .character-profile {
@@ -132,6 +140,20 @@ footer {
   .character-profile {
     flex-direction: column;
     align-items: center;
+  }
+
+  .character-roster {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .character-roster a {
+    width: 80%;
+    max-width: 300px;
+  }
+  
+  .character-roster img {
+    height: auto;
   }
 
   .portrait {
