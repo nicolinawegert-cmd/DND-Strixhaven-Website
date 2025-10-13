@@ -1,44 +1,320 @@
-/* Fantasy parchment scroll box */
-.scroll-box {
-  background: url("https://www.transparenttextures.com/patterns/aged-paper.png");
-  background-color: #fdf6e3;  /* warm parchment base */
-  background-size: cover;
-  border: 3px solid #5a2d0c;  /* dark brown border */
-  border-radius: 8px;
-  padding: 25px;
-  margin-bottom: 25px;
-
-  /* Fantasy shadow + glowing effect */
-  box-shadow: 
-    0 6px 18px rgba(0, 0, 0, 0.7),
-    inset 0 0 10px rgba(90, 45, 12, 0.5);
-
-  color: #2c1a0f;  /* dark brown ink-like text */
-  font-family: 'Uncial Antiqua', cursive; /* fantasy font */
-  line-height: 1.7;
-
-  max-height: 400px;
-  overflow-y: auto;
+/* ------------------------------
+   GLOBAL
+------------------------------ */
+body {
+  font-family: 'Georgia', serif;
+  background: #f5f5f2; /* clean, bookstore-like */
+  color: #222;
+  margin: 0;
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-/* Burnt / uneven edge effect */
-.scroll-box::before {
-  content: "";
-  position: absolute;
-  top: -5px; left: -5px; right: -5px; bottom: -5px;
-  border: 2px dashed rgba(90, 45, 12, 0.4);
-  border-radius: 10px;
+/* Subtle animated runes/particles background */
+#particles-js, .runes {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   pointer-events: none;
   z-index: -1;
-  opacity: 0.5;
+  opacity: 0.05; /* subtle, not distracting */
 }
 
-/* Divider looks magical */
+.rune {
+  position: absolute;
+  opacity: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: driftRune 60s linear infinite, fadeRune 20s ease-in-out infinite;
+}
+
+/* golden sparks (fireflies) */
+.spark {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #c6a15b;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: floatSpark 12s infinite ease-in-out;
+}
+
+/* ------------------------------
+   HEADER + NAV
+------------------------------ */
+header {
+  background: #1c1c1c;
+  color: #f5f5f5;
+  text-align: center;
+  padding: 20px 0;
+  border-bottom: 2px solid #c6a15b;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.2em;
+  font-family: 'Cinzel Decorative', serif;
+}
+
+nav ul {
+  list-style: none;
+  margin: 10px 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #f5f5f5;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #c6a15b;
+}
+
+/* ------------------------------
+   SECTIONS
+------------------------------ */
+main {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+section {
+  background: #fff;
+  border-radius: 8px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ------------------------------
+   HEADINGS
+------------------------------ */
+h1, h2, h3 {
+  color: #1c1c1c;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+}
+
+/* ------------------------------
+   CHARACTER ROSTER
+------------------------------ */
+.character-roster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.character-roster a {
+  background: #fff;
+  color: #222;
+  text-decoration: none;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 220px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.character-roster a:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.character-roster img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.character-roster p {
+  padding: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* ------------------------------
+   CHARACTER PROFILE
+------------------------------ */
+.character-profile {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.portrait {
+  width: 320px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.character-info {
+  flex: 1;
+  min-width: 280px;
+}
+
+.character-info h2 {
+  border-bottom: 2px solid #c6a15b;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+/* ------------------------------
+   PARCHMENT STYLE (Lore Pages)
+------------------------------ */
+.parchment {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 40px 50px; 
+  font-family: 'Georgia', cursive;
+  color: #2c1a0f;
+  text-align: justify;
+  line-height: 1.8;
+  border: 40px solid transparent; 
+  -webkit-border-image: url("images/textures/parchment.png") 180 fill stretch;
+  border-image: url("images/textures/parchment.png") 180 fill stretch;
+}
+
+.parchment p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #2b1d0e;
+  margin: 0;
+}
+
+.parchment p:first-letter {
+  font-size: 2em;
+  color: #8b0000;
+  font-weight: bold;
+  font-family: 'Cinzel Decorative', cursive;
+}
+
 .divider {
   text-align: center;
   font-size: 1.8em;
   margin: 25px 0;
-  color: #5a2d0c;
+  color: #c6a15b;
   font-family: 'Cinzel Decorative', serif;
-  text-shadow: 0 0 6px #e8d8a8;
+}
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+footer {
+  background: #1c1c1c;
+  color: #ccc;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+  border-top: 2px solid #c6a15b;
+}
+
+/* ------------------------------
+   MAGIC BUTTON
+------------------------------ */
+.button-magic {
+  background: linear-gradient(to right, #c6a15b, #e6c878);
+  color: #1c1c1c;
+  font-weight: bold;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-size: 1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button-magic:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(198, 161, 91, 0.6);
+}
+
+/* ------------------------------
+   ANIMATIONS
+------------------------------ */
+@keyframes floatSpark {
+  0% { transform: translateY(0) scale(1); opacity: 0.8; }
+  50% { transform: translateY(-150px) scale(1.2); opacity: 0.3; }
+  100% { transform: translateY(0) scale(1); opacity: 0.8; }
+}
+
+@keyframes fadeRune {
+  0%   { opacity: 0; }
+  25%  { opacity: 0.05; }
+  50%  { opacity: 0.1; }
+  75%  { opacity: 0.05; }
+  100% { opacity: 0; }
+}
+
+@keyframes driftRune {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  50%  { transform: translate(15px, -20px) rotate(180deg); }
+  100% { transform: translate(0, 0) rotate(360deg); }
+}
+
+/* ------------------------------
+   RESPONSIVE DESIGN
+------------------------------ */
+@media (min-width: 1600px) {
+  main { max-width: 1400px; }
+  .character-roster a { width: 260px; }
+  .portrait { width: 400px; }
+}
+
+@media (max-width: 1000px) and (min-width: 769px) {
+  .character-roster { gap: 15px; }
+  .character-roster a { width: 200px; }
+  .portrait { width: 250px; }
+}
+
+@media (max-width: 768px) {
+  main { padding: 0 15px; }
+
+  .character-profile {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .character-roster {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .character-roster a {
+    width: 90%;
+    max-width: 360px;
+  }
+
+  .portrait {
+    width: 90%;
+    max-width: 300px;
+    margin-bottom: 20px;
+  }
+
+  .character-info {
+    width: 100%;
+    text-align: center;
+  }
+
+  .parchment {
+    padding: 20px;        
+    border: 20px solid transparent; 
+    border-image: url("images/textures/parchment.png") 180 fill stretch;
+    margin: 20px auto;      
+  }
 }
