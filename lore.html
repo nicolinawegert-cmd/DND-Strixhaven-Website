@@ -6,89 +6,9 @@
   <title>Lore</title>
 </head>
 <body>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script>
-    particlesJS("particles-js", {
-      "particles": {
-        "number": { "value": 50 },
-        "color": { "value": ["#9b5de5", "#f15bb5", "#fee440", "#00bbf9", "#00f5d4"] }, 
-        "shape": { "type": "circle" },
-        "opacity": {
-          "value": 0.7,
-          "random": true,
-          "anim": {
-            "enable": true,
-            "speed": 1.5,  
-            "opacity_min": 0.1,
-            "sync": false
-          }
-        },
-        "size": {
-          "value": 5,
-          "random": true,
-          "anim": {
-            "enable": true,
-            "speed": 2,
-            "size_min": 2,
-            "sync": false
-          }
-        },
-        "move": {
-          "enable": true,
-          "speed": 0.6,
-          "direction": "none",
-          "random": true,
-          "straight": false,
-          "out_mode": "out",
-          "bounce": false
-        }
-      },
-      "interactivity": {
-        "events": {
-          "onhover": { "enable": true, "mode": "grab" },
-          "onclick": { "enable": false }
-        },
-        "modes": {
-          "grab": {
-            "distance": 120,
-            "line_linked": {
-              "opacity": 0.4
-            }
-          }
-        }
-      },
-      "retina_detect": true
-    });
-  </script>
-  <script>
-  const runeContainer = document.querySelector('.runes');
-  const runeImages = [
-    "images/witherbloom.png",
-    "images/lorehold.png",
-    "images/prismari.png",
-    "images/quandrix.png",
-    "images/silverquill.png"
-  ];
 
-  function spawnRune() {
-    const rune = document.createElement("div");
-    rune.classList.add("rune");
-    rune.style.left = Math.random() * 90 + "vw"; // random horizontal position
-    rune.style.backgroundImage = `url(${runeImages[Math.floor(Math.random() * runeImages.length)]})`;
-    rune.style.animationDuration = (30 + Math.random() * 20) + "s"; // random float speed
-    rune.style.width = rune.style.height = (80 + Math.random() * 100) + "px"; // random size
-    runeContainer.appendChild(rune);
-
-    // Remove rune after animation
-    setTimeout(() => rune.remove(), 60000);
-  }
-
-  // spawn runes every 10s
-  setInterval(spawnRune, 10000);
-
-  // spawn a few at start
-  for (let i = 0; i < 3; i++) spawnRune();
-</script>
+  <script src="animations.js"></script>
+  
 </body>
 </html>
 <footer>

@@ -3,11 +3,17 @@
 ------------------------------ */
 body {
   font-family: 'Georgia', serif;
-  background: #f5f5f2; /* clean, bookstore-like */
+  background: #090909;
   color: #222;
   margin: 0;
   line-height: 1.6;
   overflow-x: hidden;
+
+  background:
+    linear-gradient(rgba(15, 15, 20, 0.85), rgba(15, 15, 20, 0.95)),
+    url("images/group-picture.png") no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 body::before {
@@ -23,23 +29,13 @@ body::before {
 /* ------------------------------
    PARTICLES + RUNES BACKGROUND
 ------------------------------ */
-#particles-js {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-  background: radial-gradient(circle at center, #1a0f2e 0%, #0a0612 100%);
-}
-
-.runes {
+#particles-js, .runes {
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  pointer-events: none;
-  overflow: hidden;
   z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(circle at center, #1a0f2e 0%, #0a0612 100%);
 }
 
 .rune {
@@ -61,7 +57,7 @@ body::before {
   position: absolute;
   width: 4px;
   height: 4px;
-  background: #fcd34d;
+  background: #c6a15b;
   border-radius: 50%;
   opacity: 0.8;
   animation: floatSpark 10s infinite ease-in-out;
@@ -71,105 +67,32 @@ body::before {
    HEADER + NAV
 ------------------------------ */
 header {
-  background-color: #111114;
+  background-color: #1c1c1c;
   color: #f5f5f5;
   padding: 20px 0;
   text-align: center;
-  border-bottom: 3px solid #8b0000;
+  border-bottom: 2px solid #c6a15b;
 }
 
 header h1 {
   margin: 0;
-  font-size: 2.5em;
+  font-size: 2.2em;
+  font-family: 'Cinzel Decorative', serif;
+  text-shadow: 0 0 6px #e8d8a8;
 }
 
 h1, h2, h3 {
   text-align: center;
-  color: #f8f5ed;
+  color: #f3ebeb;
   margin-top: 2rem;
+  text-shadow: 0 0 6px #e8d8a8;
 }
 
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 10px 0;
-}
-
-nav ul li {
-  display: inline;
-  margin: 0 15px;
-  font-size: 1.1em;
-}
-
-nav ul li a {
-  color: #f5f5f5;
-  text-decoration: none;
-  font-weight: bold;
-  position: relative;
-}
-
-nav ul li a::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: #ffd369;
-  transition: all 0.3s ease;
-
-}
-
-nav ul li a:hover::after {
-  width: 100%;
-  left: 0;
-}
-
-nav ul li a:hover {
-  color: #ffcc00;
-}
-
-/* ------------------------------
-   LAYOUT + SECTIONS
------------------------------- */
-.page-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-main {
-  flex: 1;
-  padding: 20px;
-  max-width: 1600px;
-  margin: auto;
-}
-
-.page-container h2 {
+h2 {
   font-size: 1.8em;
-  padding-bottom: 5px;
-  margin: 20px 0 25px;
-  text-align: center;
-}
-
-.banner-image {
-  width: 100%;
-  max-height: 400px;
-  object-fit: cover;
-  display: block;
-}
-
-/* ------------------------------
-   INFO / CARDS
------------------------------- */
-
-.character-roster a {
-  background-image: url("https://www.transparenttextures.com/patterns/dark-leather.png");
-  background-color: #11110f;
-  color: #ece0e0;
-  border: 2px solid #8b0000;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  font-family: 'Cinzel Decorative', serif;
+  text-shadow: 0 0 6px #e8d8a8;
 }
 
 .info {
@@ -183,9 +106,73 @@ main {
   margin: 20px 0 15px;
 }
 
+nav ul {
+  list-style: none;
+  margin: 10px 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 15px;
+  font-size: 1.1em;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #f5f5f5;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #ffd369;
+  transition: all 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+nav ul li a:hover {
+  color: #c6a15b;
+}
+
+/* ------------------------------
+   LAYOUT + SECTIONS
+------------------------------ */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+section {
+  background: #1c1c1c;
+  border-radius: 8px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
 /* ------------------------------
    CHARACTER ROSTER
 ------------------------------ */
+
 .character-roster {
   display: flex;
   flex-wrap: wrap;
@@ -194,19 +181,24 @@ main {
 }
 
 .character-roster a {
-  width: 240px;
-  max-width: 260px;
+  background-image: url("https://www.transparenttextures.com/patterns/dark-leather.png");
+  border: 2px solid #c6a15b;
   padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-decoration: none;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 240px;
+  max-width: 260px;
   transition: transform 0.2s, background-color 0.3s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .character-roster a:hover {
-  transform: scale(1.05);
-  background-color: #3e3e50;
+  transform: scale(1.03);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 
 .character-roster img {
@@ -215,11 +207,10 @@ main {
   object-fit: cover;
   border-radius: 12px;
   margin-bottom: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .character-roster p {
-  margin: 0;
+  padding: 10px;
   font-size: 14px;
   text-align: center;
 }
@@ -229,10 +220,10 @@ main {
 ------------------------------ */
 .character-profile {
   display: flex;
+  flex-wrap: wrap;
   gap: 30px;
   align-items: flex-start;
-  margin: 40px 0;
-  flex-wrap: wrap;
+  margin-top: 30px;
 }
 
 .portrait {
@@ -240,7 +231,6 @@ main {
   max-width: 100%;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-  object-fit: cover;
 }
 
 .character-info {
@@ -250,18 +240,18 @@ main {
 }
 
 .character-info h2 {
-  font-family: 'Cinzel Decorative', serif;
-  font-size: 1.8em;
-  margin-bottom: 15px;
-  color: #f5f5f5;
-  border-bottom: 2px solid #8b0000;
+  border-bottom: 2px solid #c6a15b;
   padding-bottom: 5px;
+  margin-bottom: 15px;
 }
 
 .character-info ul {
   list-style: none;      
   margin: 10px 0 20px;   
-  padding-left: 0;       
+  padding-left: 0;  
+  color: #faf8f8;  
+  font-family: 'Cinzel Decorative', serif;
+  text-align: center;
 }
 
 .character-info li {
@@ -303,31 +293,111 @@ main {
   text-align: center;
   font-size: 1.8em;
   margin: 25px 0;
-  color: #99dfe4;
+  color: #8b0000;
   font-family: 'Cinzel Decorative', serif;
-  text-shadow: 0 0 6px #e8d8a8;
 }
 
 /* ------------------------------
    FOOTER
 ------------------------------ */
 footer {
-  text-align: center;
-  padding: 8px 0;
-  background-color: #111114;
-  border-top: 2px solid #8b0000;
+  background: #1c1c1c;
   color: #ccc;
+  text-align: center;
+  padding: 15px 0;
   font-size: 14px;
+  border-top: 2px solid #c6a15b;
+}
+
+/* ------------------------------
+   MAGIC BUTTON
+------------------------------ */
+.button-magic {
+  background: linear-gradient(to right, #c6a15b, #e6c878);
+  color: #1c1c1c;
+  font-weight: bold;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-size: 1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button-magic:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(198, 161, 91, 0.6);
 }
 
 /* ------------------------------
    ANIMATIONS
 ------------------------------ */
 
-@keyframes floatStars {
-  from { transform: translate(0,0); }
-  to   { transform: translate(-500px,-500px); }
+/* Sparks floating in different directions */
+@keyframes floatSparkUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: translateY(-150px) scale(1.2);
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
 }
+
+@keyframes floatSparkLeft {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: translate(-100px, -150px) scale(1.2);
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes floatSparkRight {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: translate(100px, -150px) scale(1.2);
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes floatSparkLeft {
+  0% { transform: translate(0,0) scale(1); opacity: 0.8; }
+  50% { transform: translate(-100px,-150px) scale(1.2); opacity: 0.3; }
+  100% { transform: translate(0,0) scale(1); opacity: 0.8; }
+}
+
+@keyframes floatSparkRight {
+  0% { transform: translate(0,0) scale(1); opacity: 0.8; }
+  50% { transform: translate(100px,-150px) scale(1.2); opacity: 0.3; }
+  100% { transform: translate(0,0) scale(1); opacity: 0.8; }
+}
+
 
 @keyframes floatRune {
   from { transform: rotate(0deg); }
@@ -336,9 +406,9 @@ footer {
 
 @keyframes fadeRune {
   0%   { opacity: 0; }
-  25%  { opacity: 0.08; }
-  50%  { opacity: 0.15; }
-  75%  { opacity: 0.08; }
+  25%  { opacity: 0.05; }
+  50%  { opacity: 0.1; }
+  75%  { opacity: 0.05; }
   100% { opacity: 0; }
 }
 
@@ -371,6 +441,8 @@ footer {
 }
 
 @media (max-width: 768px) {
+  main { padding: 0 15px; }
+
   .parchment {
     padding: 20px;        
     border: 15px solid transparent; 
