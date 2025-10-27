@@ -1,0 +1,109 @@
+body {
+  background-color: #0f0f0f;
+  color: #f0e6d2;
+  font-family: 'Georgia', serif;
+  background-image: radial-gradient(circle at top center, rgba(255, 255, 255, 0.05), transparent 70%);
+}
+
+header {
+  text-align: center;
+  color: #f5f5f5;
+  padding: 20px 0;
+  border-bottom: 2px solid #c6a15b;
+  
+  
+}
+
+header h1 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 2.5em;
+  color: #f5f5f5;
+  letter-spacing: 2px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #f0e6d2;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+/*lyser vilken sida man är på i option bar, hitta hur man lägger in det i huvud css med*/
+/*nav a:hover, 
+nav a.active {
+  color: #c6a15b; 
+}*/
+
+main {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+main h2 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  color: #f8e8c8;
+  text-shadow: 0 0 10px rgba(255, 215, 100, 0.5);
+}
+
+#npc-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.npc-card {
+  background: rgba(30, 30, 30, 0.95);
+  border: 2px solid #6b5b2c;
+  border-radius: 12px;
+  width: 240px;
+  padding: 15px;
+  color: #f0e6d2;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+  transition: transform 0.25s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.npc-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  border-color: #ffd700;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.npc-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.npc-card h3 {
+  margin: 10px 0 5px;
+  font-size: 1.3em;
+  color: #ffdd88;
+}
+
+.npc-card p {
+  font-family: 'Georgia', serif;
+  font-size: 0.9em;
+  color: #e5d9b6;
+}
+
+footer {
+  background: #1c1c1c;
+  color: #ccc;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+  border-top: 2px solid #c6a15b;
+}

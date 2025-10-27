@@ -1,25 +1,8 @@
-<script>
-  const SPARK_COUNT = 25;
-  const directions = ["floatSparkUp", "floatSparkLeft", "floatSparkRight"];
-
-  for (let i = 0; i < SPARK_COUNT; i++) {
-    const spark = document.createElement('div');
-    spark.classList.add('spark');
-
-    // random position on screen
-    spark.style.left = Math.random() * 100 + "%";
-    spark.style.top = Math.random() * 100 + "%";
-
-    // random size
-    const size = Math.random() * 4 + 2; // 2px–6px
-    spark.style.width = size + "px";
-    spark.style.height = size + "px";
-
-    // random animation
-    const duration = Math.random() * 10 + 8; // 8–18s
-    const chosenAnim = directions[Math.floor(Math.random() * directions.length)];
-    spark.style.animation = `${chosenAnim} ${duration}s infinite ease-in-out`;
-
-    document.body.appendChild(spark);
-  }
-</script>
+footer {
+  background: #1c1c1c;
+  color: #ccc;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+  border-top: 2px solid #c6a15b;
+}

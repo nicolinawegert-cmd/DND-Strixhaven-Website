@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Elaria Moonshadow",
+    "role": "Elven Innkeeper",
+    "image": "images/elaria.jpg",
+    "description": "A graceful elf who runs the Moonlight Tavern. Knows everyone’s secrets."
+  },
+  {
+    "name": "Grimnir Stonefist",
+    "role": "Dwarven Blacksmith",
+    "image": "images/grimnir.jpg",
+    "description": "A gruff dwarf who forges the finest weapons in the realm."
+  }
+]
