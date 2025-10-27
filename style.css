@@ -170,136 +170,6 @@ section {
 }
 
 /* ------------------------------
-   CHARACTER ROSTER
------------------------------- */
-
-.character-roster {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-}
-
-.character-roster a {
-  background-image: url("https://www.transparenttextures.com/patterns/dark-leather.png");
-  border: 2px solid #c6a15b;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  border-radius: 8px;
-  overflow: hidden;
-  width: 240px;
-  max-width: 260px;
-  transition: transform 0.2s, background-color 0.3s;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.character-roster a:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-}
-
-.character-roster img {
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 8px;
-}
-
-.character-roster p {
-  padding: 10px;
-  font-size: 14px;
-  text-align: center;
-}
-
-/* ------------------------------
-   CHARACTER PROFILE
------------------------------- */
-.character-profile {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  align-items: flex-start;
-  margin-top: 30px;
-}
-
-.portrait {
-  width: 350px;
-  max-width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-}
-
-.character-info {
-  flex: 1;
-  min-width: 280px;
-  line-height: 1.7;
-}
-
-.character-info h2 {
-  border-bottom: 2px solid #c6a15b;
-  padding-bottom: 5px;
-  margin-bottom: 15px;
-}
-
-.character-info ul {
-  list-style: none;      
-  margin: 10px 0 20px;   
-  padding-left: 0;  
-  color: #faf8f8;  
-  font-family: 'Cinzel Decorative', serif;
-  text-align: center;
-}
-
-.character-info li {
-  padding: 4px 0;        
-}
-
-/* ------------------------------
-   PARCHMENT STYLE
------------------------------- */
-.parchment {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 40px 50px; 
-  font-family: 'Georgia', cursive;
-  color: #2c1a0f;
-  text-align: justify;
-  line-height: 1.8;
-  border: 60px solid transparent; 
-  -webkit-border-image: url("images/textures/parchment.png") 180 fill stretch;
-  border-image: url("images/textures/parchment.png") 180 fill stretch;
-  overflow: hidden;
-}
-
-.parchment p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #2b1d0e;
-  margin: 0;
-}
-
-.parchment p:first-letter {
-  font-size: 2em;
-  color: #8b0000;
-  font-weight: bold;
-  font-family: 'Cinzel Decorative', cursive;
-}
-
-.divider {
-  text-align: center;
-  font-size: 1.8em;
-  margin: 25px 0;
-  color: #8b0000;
-  font-family: 'Cinzel Decorative', serif;
-}
-
-/* ------------------------------
    FOOTER
 ------------------------------ */
 footer {
@@ -446,15 +316,17 @@ footer {
   main { padding: 0 15px; }
 
   .parchment {
-    padding: 20px;        
+    padding: 20px;       
     border: 15px solid transparent; 
-    border-image: url("images/textures/parchment.png") 180 fill stretch;
+    border-image: url("../../images/textures/parchment.png") 180 fill stretch;
     margin: 20px auto;      
   }
 
   .character-profile {
     flex-direction: column;
     align-items: center;
+    text-align: center;
+    padding: 10px;
   }
 
   .character-roster {
@@ -474,7 +346,7 @@ footer {
   }
 
   .portrait {
-    width: 90%;
+    width: 85%;
     max-width: 320px;
     aspect-ratio: 3 / 4;
     margin-bottom: 20px;

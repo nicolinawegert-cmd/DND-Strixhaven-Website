@@ -1,104 +1,160 @@
+/* ------------------------------
+   NPC PAGE STYLING
+------------------------------ */
+
+/* Body */
 body {
+  font-family: 'Georgia', serif;
   background-color: #0f0f0f;
   color: #f0e6d2;
-  font-family: 'Georgia', serif;
-  background-image: radial-gradient(circle at top center, rgba(255, 255, 255, 0.05), transparent 70%);
+  margin: 0;
+  line-height: 1.6;
+
+  background:
+    linear-gradient(rgba(15, 15, 20, 0.85), rgba(15, 15, 20, 0.95)),
+    url("../images/group-picture.png") no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
+/* Header */
 header {
-  text-align: center;
+  background-color: #1c1c1c;
   color: #f5f5f5;
   padding: 20px 0;
+  text-align: center;
   border-bottom: 2px solid #c6a15b;
-  
-  
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 header h1 {
+  margin: 0;
+  font-size: 2.2em;
   font-family: 'Cinzel Decorative', serif;
-  font-size: 2.5em;
-  color: #f5f5f5;
-  letter-spacing: 2px;
+  text-shadow: 0 0 6px #e8d8a8;
 }
 
+/* Navigation */
 nav ul {
   list-style: none;
-  padding: 0;
   margin: 10px 0;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
+  padding: 0;
 }
 
-nav a {
-  text-decoration: none;
-  color: #f0e6d2;
-  font-weight: bold;
-  letter-spacing: 1px;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
+nav ul li {
+  display: inline;
+  margin: 0 15px;
+  font-size: 1.1em;
 }
-/*lyser vilken sida man är på i option bar, hitta hur man lägger in det i huvud css med*/
-/*nav a:hover, 
-nav a.active {
-  color: #c6a15b; 
-}*/
+
+nav ul li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #f5f5f5;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #ffd369;
+  transition: all 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: #c6a15b;
+}
+
+/* Page Layout */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
 main {
   max-width: 1200px;
   margin: 40px auto;
   padding: 0 20px;
+  text-align: center;
 }
 
 main h2 {
   font-family: 'Cinzel Decorative', serif;
   font-size: 1.8em;
   margin-bottom: 20px;
-  color: #f8e8c8;
-  text-shadow: 0 0 10px rgba(255, 215, 100, 0.5);
+  color: #f3ebeb;
+  text-shadow: 0 0 6px #e8d8a8;
 }
 
+/* ------------------------------
+   NPC CARD GRID
+------------------------------ */
 #npc-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 25px;
+  gap: 30px;
+  margin-top: 40px;
 }
 
 .npc-card {
-  background: rgba(30, 30, 30, 0.95);
-  border: 2px solid #6b5b2c;
-  border-radius: 12px;
-  width: 240px;
+  background-image: url("https://www.transparenttextures.com/patterns/dark-leather.png");
+  border: 2px solid #c6a15b;
+  border-radius: 8px;
   padding: 15px;
+  width: 240px;
+  max-width: 260px;
   color: #f0e6d2;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
-  transition: transform 0.25s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  transition: transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
 }
 
 .npc-card:hover {
-  transform: translateY(-5px) scale(1.03);
-  border-color: #ffd700;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  transform: scale(1.03);
+  border-color: #ffd369;
+  box-shadow: 0 0 20px rgba(198, 161, 91, 0.6);
 }
 
 .npc-card img {
   width: 100%;
-  border-radius: 8px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 6px;
   margin-bottom: 10px;
+  border: 1px solid #c6a15b;
 }
 
 .npc-card h3 {
-  margin: 10px 0 5px;
+  font-family: 'Cinzel Decorative', serif;
+  color: #ffd369;
   font-size: 1.3em;
-  color: #ffdd88;
+  margin: 10px 0 5px;
 }
 
 .npc-card p {
-  font-family: 'Georgia', serif;
   font-size: 0.9em;
-  color: #e5d9b6;
+  font-family: 'Georgia', serif;
+  color: #f0e6d2;
+  text-align: center;
+  line-height: 1.5;
 }
 
+/* ------------------------------
+   FOOTER
+------------------------------ */
 footer {
   background: #1c1c1c;
   color: #ccc;
@@ -106,4 +162,28 @@ footer {
   padding: 15px 0;
   font-size: 14px;
   border-top: 2px solid #c6a15b;
+  margin-top: 40px;
+}
+
+/* ------------------------------
+   RESPONSIVE DESIGN
+------------------------------ */
+@media (max-width: 768px) {
+  main {
+    padding: 0 15px;
+  }
+
+  #npc-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .npc-card {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .npc-card img {
+    max-width: 350px;
+  }
 }
