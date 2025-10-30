@@ -1,3 +1,7 @@
+@import './assets/css/characters-style.css';
+@import './assets/css/lore-style.css';
+@import './assets/css/npc-style.css';
+
 /* ------------------------------
    GLOBAL
 ------------------------------ */
@@ -55,12 +59,61 @@ body::before {
 
 .spark {
   position: absolute;
-  width: 4px;
-  height: 4px;
-  background: #c6a15b;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  opacity: 0.8;
-  animation: floatSpark 10s infinite ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  transition: transform 0.3s ease-out;
+}
+
+.spark--cyan {
+  background: radial-gradient(circle at center,
+    rgba(178, 248, 255, 0.95) 0%,
+    rgba(120, 220, 255, 0.7) 45%,
+    rgba(40, 160, 220, 0.35) 70%,
+    rgba(0, 110, 180, 0) 100%);
+  box-shadow:
+    0 0 6px rgba(150, 240, 255, 0.9),
+    0 0 18px rgba(70, 190, 255, 0.55);
+}
+
+.spark--amber {
+  background: radial-gradient(circle at center,
+    rgba(255, 236, 180, 0.95) 0%,
+    rgba(255, 210, 120, 0.65) 45%,
+    rgba(255, 170, 60, 0.35) 70%,
+    rgba(255, 140, 0, 0) 100%);
+  box-shadow:
+    0 0 6px rgba(255, 220, 150, 0.9),
+    0 0 18px rgba(255, 170, 60, 0.5);
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 20px auto 50px;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+.spark-origin {
+  position: absolute;
+  bottom: clamp(16px, 3.5vw, 48px);
+  left: 50%;
+  width: clamp(320px, 46vw, 760px);
+  height: clamp(120px, 18vw, 240px);
+  transform: translate(-50%, 0);
+  pointer-events: none;
+  overflow: visible;
 }
 
 /* ------------------------------
@@ -208,66 +261,24 @@ footer {
 
 /* Sparks floating in different directions */
 @keyframes floatSparkUp {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 0.8;
-  }
-
-  50% {
-    transform: translateY(-150px) scale(1.2);
-    opacity: 0.3;
-  }
-
-  100% {
-    transform: translateY(0) scale(1);
-    opacity: 0.8;
-  }
+  0%   { transform: translate(0, 0) scale(0.75); opacity: 0; }
+  20%  { opacity: 0.9; }
+  70%  { transform: translate(0, -180px) scale(1.05); opacity: 0.6; }
+  100% { transform: translate(0, -240px) scale(1.1); opacity: 0; }
 }
 
 @keyframes floatSparkLeft {
-  0% {
-    transform: translate(0, 0) scale(1);
-    opacity: 0.8;
-  }
-
-  50% {
-    transform: translate(-100px, -150px) scale(1.2);
-    opacity: 0.3;
-  }
-
-  100% {
-    transform: translate(0, 0) scale(1);
-    opacity: 0.8;
-  }
+  0%   { transform: translate(0, 0) scale(0.75); opacity: 0; }
+  20%  { opacity: 0.9; }
+  70%  { transform: translate(-140px, -150px) scale(1.05); opacity: 0.6; }
+  100% { transform: translate(-220px, -210px) scale(1.1); opacity: 0; }
 }
 
 @keyframes floatSparkRight {
-  0% {
-    transform: translate(0, 0) scale(1);
-    opacity: 0.8;
-  }
-
-  50% {
-    transform: translate(100px, -150px) scale(1.2);
-    opacity: 0.3;
-  }
-
-  100% {
-    transform: translate(0, 0) scale(1);
-    opacity: 0.8;
-  }
-}
-
-@keyframes floatSparkLeft {
-  0% { transform: translate(0,0) scale(1); opacity: 0.8; }
-  50% { transform: translate(-100px,-150px) scale(1.2); opacity: 0.3; }
-  100% { transform: translate(0,0) scale(1); opacity: 0.8; }
-}
-
-@keyframes floatSparkRight {
-  0% { transform: translate(0,0) scale(1); opacity: 0.8; }
-  50% { transform: translate(100px,-150px) scale(1.2); opacity: 0.3; }
-  100% { transform: translate(0,0) scale(1); opacity: 0.8; }
+  0%   { transform: translate(0, 0) scale(0.75); opacity: 0; }
+  20%  { opacity: 0.9; }
+  70%  { transform: translate(140px, -150px) scale(1.05); opacity: 0.6; }
+  100% { transform: translate(220px, -210px) scale(1.1); opacity: 0; }
 }
 
 

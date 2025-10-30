@@ -56,7 +56,7 @@
 }
 
 .portrait {
-  width: 350px;
+  width: clamp(320px, 28vw, 420px);
   max-width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
@@ -97,27 +97,20 @@
   .character-roster a { width: 280px; max-width: 300px; }
   .character-roster { gap: 40px; }
   .character-roster p { font-size: 18px; font-weight: bold; }
-  .portrait { width: 450px; max-width: 500px; aspect-ratio: 3/4; }
+  .portrait { width: clamp(380px, 26vw, 540px); max-width: 100%; aspect-ratio: 3/4; }
   .character-info { font-size: 1.2em; line-height: 1.8; }
 }
 
 @media (max-width: 1000px) and (min-width: 769px) {
   .character-roster { gap: 20px; }
   .character-roster a { width: 220px; max-width: 250px; }
-  .portrait { width: 250px; }
+  .portrait { width: clamp(260px, 40vw, 360px); }
   .character-info { font-size: 1.05em; }
   .character-roster p { font-size: 18px; font-weight: bold; }
 }
 
 @media (max-width: 768px) {
   main { padding: 0 15px; }
-
-  .parchment {
-    padding: 20px;        
-    border: 15px solid transparent; 
-    border-image: url("images/textures/parchment.png") 180 fill stretch;
-    margin: 20px auto;      
-  }
 
   .character-profile {
     flex-direction: column;
@@ -141,8 +134,8 @@
   }
 
   .portrait {
-    width: 90%;
-    max-width: 320px;
+    width: clamp(260px, 85vw, 420px);
+    max-width: 100%;
     aspect-ratio: 3 / 4;
     margin-bottom: 20px;
   }
@@ -157,10 +150,12 @@
    PARCHMENT STYLE
 ------------------------------ */
 .parchment {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 40px 50px;
-  border: 60px solid transparent;
+  width: 100%;
+  max-width: clamp(640px, 70vw, 1040px);
+  margin: clamp(16px, 4vw, 42px) auto;
+  padding: clamp(28px, 4vw, 60px);
+  border: clamp(18px, 4vw, 70px) solid transparent;
+  box-sizing: border-box;
   -webkit-border-image: url("../../images/textures/parchment.png") 180 fill stretch;
   border-image: url("../../images/textures/parchment.png") 180 fill stretch;
   overflow: hidden;
